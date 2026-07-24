@@ -1,0 +1,233 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 120px;
+  padding-bottom: 80px;
+  overflow: hidden;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: center;
+}
+
+/* ---- Text column ---- */
+.badge {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--accent-gold);
+  border: 1px solid var(--border);
+  padding: 8px 16px;
+  border-radius: 999px;
+  margin-bottom: 28px;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 28px;
+}
+
+.line {
+  display: block;
+  overflow: hidden;
+  color: var(--text);
+}
+
+.lineAccent {
+  color: var(--accent-gold);
+}
+
+.word {
+  display: inline-block;
+  margin-right: 0.28em;
+}
+
+.subtitle {
+  max-width: 480px;
+  font-size: 1.05rem;
+  margin-bottom: 36px;
+}
+
+.ctaRow {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 44px;
+  flex-wrap: wrap;
+}
+
+.ctaPrimary {
+  background: var(--bg-inverse);
+  color: var(--text-inverse);
+  font-weight: 600;
+  font-size: 0.92rem;
+  padding: 14px 28px;
+  border-radius: 999px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ctaPrimary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px var(--shadow);
+}
+
+.ctaSecondary {
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-weight: 600;
+  font-size: 0.92rem;
+  padding: 14px 28px;
+  border-radius: 999px;
+  transition: border-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.ctaSecondary:hover {
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+  transform: translateY(-3px);
+}
+
+.verseFragment {
+  font-family: var(--font-ethiopic);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--text-muted);
+  max-width: 460px;
+  line-height: 1.9;
+}
+
+.verseRef {
+  display: block;
+  font-style: normal;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: var(--accent-gold);
+  margin-top: 6px;
+  font-family: var(--font-sans);
+}
+
+/* ---- Photo column ---- */
+.photoCol {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photoRing {
+  position: relative;
+  width: min(420px, 80vw);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  padding: 18px;
+  border: 1px solid var(--border);
+}
+
+.photoRing::before {
+  content: '';
+  position: absolute;
+  inset: -30px;
+  border: 1px dashed var(--border);
+  border-radius: 50%;
+}
+
+.photoFrame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.05) brightness(0.95);
+}
+
+.photoOverlay {
+  position: absolute;
+  inset: 0;
+  background: var(--bg-inverse);
+  mix-blend-mode: color;
+  opacity: 0.55;
+}
+
+.orbitDot {
+  position: absolute;
+  top: 6%;
+  right: 2%;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent-gold);
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent-gold) 20%, transparent);
+}
+
+/* ---- Scroll cue ---- */
+.scrollCue {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  z-index: 1;
+}
+
+.scrollLine {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--accent-gold), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(0.7); transform-origin: top; }
+  50% { opacity: 1; transform: scaleY(1); transform-origin: top; }
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 960px) {
+  .inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .subtitle, .verseFragment {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .ctaRow {
+    justify-content: center;
+  }
+  .photoCol {
+    order: -1;
+  }
+  .photoRing {
+    width: min(300px, 60vw);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding-top: 100px;
+  }
+  .word {
+    margin-right: 0.22em;
+  }
+}

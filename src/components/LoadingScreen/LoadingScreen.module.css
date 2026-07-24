@@ -1,0 +1,192 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-inverse);
+  clip-path: circle(150% at 50% 50%);
+  transition: clip-path 1s cubic-bezier(0.76, 0, 0.24, 1);
+  overflow: hidden;
+}
+
+.overlayClosing {
+  clip-path: circle(0% at 50% 50%);
+}
+
+/* Background texture + glow */
+.dotBg {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(248, 244, 234, 0.07) 1.5px, transparent 1.5px);
+  background-size: 26px 26px;
+}
+
+.glow {
+  position: absolute;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201, 162, 75, 0.22), transparent 70%);
+  animation: glowPulse 3.6s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% { transform: scale(0.9); opacity: 0.7; }
+  50% { transform: scale(1.08); opacity: 1; }
+}
+
+/* Content */
+.content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 24px;
+}
+
+.ringWrap {
+  position: relative;
+  width: 110px;
+  height: 110px;
+  margin-bottom: 28px;
+  opacity: 0;
+  animation: fadeIn 0.6s ease forwards 0.1s;
+}
+
+.ringSvg {
+  position: absolute;
+  inset: 0;
+  transform: rotate(-90deg);
+}
+
+.ringTrack {
+  fill: none;
+  stroke: rgba(248, 244, 234, 0.12);
+  stroke-width: 1.5;
+}
+
+.ringDraw {
+  fill: none;
+  stroke: var(--accent-gold);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: drawRing 1.6s cubic-bezier(0.65, 0, 0.35, 1) forwards 0.35s;
+  filter: drop-shadow(0 0 6px rgba(201, 162, 75, 0.5));
+}
+
+@keyframes drawRing {
+  to { stroke-dashoffset: 0; }
+}
+
+.mark {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-ethiopic);
+  font-size: 2.2rem;
+  color: var(--accent-gold);
+  opacity: 0;
+  animation: fadeIn 0.7s ease forwards 1.3s;
+}
+
+.wordmark {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--text-inverse);
+  margin: 0 0 6px;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeUp 0.7s ease forwards 1.55s;
+}
+
+.subWordmark {
+  font-family: var(--font-ethiopic);
+  font-size: 0.85rem;
+  color: var(--text-inverse-muted);
+  opacity: 0;
+  animation: fadeIn 0.7s ease forwards 1.7s;
+  margin-bottom: 36px;
+}
+
+.verseWrap {
+  min-height: 54px;
+  width: min(420px, 80vw);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  opacity: 0;
+  animation: fadeIn 0.7s ease forwards 1.9s;
+}
+
+.verse {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: var(--text-inverse-muted);
+  animation: verseFade 0.6s ease;
+}
+
+.verse[lang='am'] {
+  font-family: var(--font-ethiopic);
+  font-style: normal;
+  line-height: 1.85;
+}
+
+@keyframes verseFade {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.progressTrack {
+  width: 140px;
+  height: 2px;
+  background: rgba(248, 244, 234, 0.15);
+  border-radius: 2px;
+  overflow: hidden;
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards 2.1s;
+}
+
+.progressFill {
+  height: 100%;
+  background: var(--accent-gold);
+  border-radius: 2px;
+  transition: width 0.25s ease-out;
+}
+
+/* Shared keyframes */
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- Reduced motion: skip decorative animation, keep it functional ---- */
+@media (prefers-reduced-motion: reduce) {
+  .overlay { transition-duration: 0.4s; }
+  .glow { animation: none; opacity: 0.7; }
+  .ringDraw { animation-duration: 0.4s; }
+  .ringWrap, .mark, .wordmark, .subWordmark, .verseWrap, .progressTrack {
+    animation-duration: 0.3s !important;
+  }
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 480px) {
+  .ringWrap { width: 90px; height: 90px; margin-bottom: 22px; }
+  .mark { font-size: 1.8rem; }
+  .wordmark { font-size: 1.35rem; }
+  .verse { font-size: 0.9rem; }
+}

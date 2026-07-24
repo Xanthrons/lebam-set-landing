@@ -1,0 +1,75 @@
+.verseBlock {
+  position: relative;
+  background-color: var(--bg-inverse);
+  padding: 160px 0;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.watermark {
+  position: absolute;
+  top: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-serif);
+  font-size: 40rem;
+  line-height: 1;
+  color: var(--accent-gold);
+  opacity: 0.06;
+  pointer-events: none;
+  z-index: 0;
+  user-select: none;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.verseText {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 3.2vw, 2.6rem);
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--text-inverse);
+  max-width: 900px;
+}
+
+.verseText[lang='am'] {
+  font-family: var(--font-ethiopic);
+  line-height: 1.9;
+}
+
+.word {
+  display: inline-block;
+}
+
+.divider {
+  width: 90px;
+  height: 2px;
+  background: var(--accent-gold);
+  margin: 40px 0 20px;
+  transform: scaleX(0);
+  transform-origin: center;
+}
+
+.verseRef {
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-inverse-muted);
+}
+
+@media (max-width: 768px) {
+  .verseBlock {
+    padding: 100px 0;
+  }
+  .watermark {
+    font-size: 18rem;
+    top: -60px;
+  }
+}

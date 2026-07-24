@@ -1,0 +1,225 @@
+.journey {
+  position: relative;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.header {
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto 20px;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold-text, var(--accent-gold));
+  margin-bottom: 16px;
+}
+
+.title { margin-bottom: 18px; }
+.subtitle { font-size: 1.02rem; line-height: 1.8; }
+
+/* =========================================================
+   DESKTOP CURVED PATH
+   ========================================================= */
+.track {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.pathSvg {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  overflow: visible;
+  pointer-events: none;
+}
+
+.pathBg {
+  fill: none;
+  stroke: var(--border);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.pathProgress {
+  fill: none;
+  stroke: var(--accent-gold);
+  stroke-width: 2;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 6px rgba(201, 162, 75, 0.5));
+}
+
+.travelerDot {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent-gold-soft);
+  box-shadow: 0 0 0 4px rgba(201, 162, 75, 0.25), 0 0 16px 4px rgba(201, 162, 75, 0.6);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.row {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.content {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 38%;
+  opacity: 0.32;
+  filter: grayscale(0.4);
+  transition: opacity 0.6s ease, filter 0.6s ease, transform 0.6s ease;
+}
+
+.contentActive {
+  opacity: 1;
+  filter: grayscale(0);
+}
+
+.rowRight .content {
+  left: 0;
+  text-align: right;
+}
+
+.rowLeft .content {
+  right: 0;
+  text-align: left;
+}
+
+.stepLabel {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--gold-text, var(--accent-gold));
+  margin-bottom: 10px;
+}
+
+.stageTitle {
+  margin-bottom: 12px;
+}
+
+.stageText {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--text-muted);
+}
+
+.stageText[lang='am'] {
+  font-family: var(--font-ethiopic);
+  line-height: 1.9;
+}
+
+.marker {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  color: var(--text-muted);
+  z-index: 4;
+  transition: border-color 0.5s ease, color 0.5s ease, background 0.5s ease, box-shadow 0.5s ease, transform 0.4s ease;
+}
+
+.markerActive {
+  border-color: var(--accent-gold);
+  background: var(--accent-gold);
+  color: var(--bg-inverse);
+  box-shadow: 0 0 0 6px rgba(201, 162, 75, 0.18);
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+/* =========================================================
+   MOBILE STRAIGHT TIMELINE
+   ========================================================= */
+.mobileTrackWrap {
+  display: none;
+}
+
+.mobileTrack {
+  position: relative;
+  padding-left: 48px;
+}
+
+.mobileLine {
+  position: absolute;
+  left: 14px;
+  top: 4px;
+  bottom: 4px;
+  width: 2px;
+  background: var(--border);
+}
+
+.mobileLineFill {
+  position: absolute;
+  left: 14px;
+  top: 4px;
+  width: 2px;
+  height: calc(var(--fill) * 100%);
+  background: var(--accent-gold);
+  box-shadow: 0 0 8px rgba(201, 162, 75, 0.5);
+}
+
+.mobileRow {
+  position: relative;
+  padding-bottom: 46px;
+}
+
+.mobileRow:last-child {
+  padding-bottom: 0;
+}
+
+.mobileMarker {
+  position: absolute;
+  left: -48px;
+  top: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1.5px solid var(--accent-gold);
+  color: var(--accent-gold);
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobileContent {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 22px 22px;
+}
+
+/* =========================================================
+   RESPONSIVE SWITCH
+   ========================================================= */
+@media (max-width: 900px) {
+  .track { display: none; }
+  .mobileTrackWrap { display: block; }
+}
