@@ -35,7 +35,13 @@ export default function Header() {
       <div className={`container ${styles.inner}`}>
         {/* Logo */}
         <a href="#home" className={styles.logo}>
-          <span className={styles.logoMark}>ል</span>
+          <span className={styles.logoMark}>
+            <img
+              src="/images/logo.png"
+              alt="Lebam Set"
+              className={styles.logoImg}
+            />
+          </span>
           <span className={styles.logoText}>
             Lebam Set
             <span className={styles.logoSub}>ልባም ሴት</span>
@@ -84,7 +90,11 @@ export default function Header() {
             )}
           </button>
 
-          <a href="#join" className={styles.ctaBtn}>
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSenHnLFkshKBdNR5mD7g3vpg53ucl0lYcpg1OdpF1dvkfMHTQ/viewform?usp=dialog"
+            className={styles.ctaBtn}
+            target="_blank"
+          >
             {t("nav.join")}
           </a>
 
@@ -132,7 +142,8 @@ export default function Header() {
                 </motion.a>
               ))}
               <motion.a
-                href="#join"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSenHnLFkshKBdNR5mD7g3vpg53ucl0lYcpg1OdpF1dvkfMHTQ/viewform?usp=dialog"
+                target="_blank"
                 className={styles.ctaBtn}
                 onClick={() => setMenuOpen(false)}
                 initial={{ opacity: 0, y: 12 }}

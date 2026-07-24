@@ -16,6 +16,7 @@ const photoSrcs = [
   "/images/gallery-7.jpg",
   "/images/gallery-8.jpg",
   "/images/gallery-9.jpg",
+  "/images/gallery-12.jpg",
 ];
 
 export default function Gallery() {
@@ -68,8 +69,9 @@ export default function Gallery() {
           {t("gallery.subtitle")}
         </p>
       </div>
+      <p className={styles.swipeHint}>{t("gallery.swipeHint")}</p>
 
-      <div className="container">
+      <div className={styles.masonryOuter}>
         <div ref={gridRef} className={styles.masonry}>
           {photos.map((photo, i) => (
             <button

@@ -5,8 +5,8 @@ import { useLanguage } from "@/context/LanguageContext";
 import { gsap, fadeUpStagger } from "@/lib/scrollAnimations";
 import styles from "./JoinCommunity.module.css";
 
-const TIKTOK_URL = "https://www.tiktok.com/@lebamset";
-const TELEGRAM_URL = "https://t.me/lebamset";
+const TIKTOK_URL = "https://www.tiktok.com/@virtuouswomenproverb31";
+const TELEGRAM_URL = "https://t.me/+UHbfgJarYTNjMjhk";
 
 function TikTokIcon() {
   return (

@@ -96,7 +96,11 @@ export default function Hero() {
             <a href="#about" className={styles.ctaPrimary}>
               {t("hero.ctaPrimary")}
             </a>
-            <a href="#join" className={styles.ctaSecondary}>
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSenHnLFkshKBdNR5mD7g3vpg53ucl0lYcpg1OdpF1dvkfMHTQ/viewform?usp=dialog"
+              className={styles.ctaSecondary}
+              target="_blank"
+            >
               {t("hero.ctaSecondary")}
             </a>
           </motion.div>

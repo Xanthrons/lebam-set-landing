@@ -1,11 +1,14 @@
 .programs {
-  background-color: var(--bg);
+  background: var(--bg);
+  position: relative;
 }
 
 .header {
+  position: relative;
+  z-index: 1;
   text-align: center;
   max-width: 620px;
-  margin: 0 auto 64px;
+  margin: 0 auto 56px;
 }
 
 .eyebrow {
@@ -14,111 +17,211 @@
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--accent-gold);
+  color: var(--gold-text, var(--accent-gold));
   margin-bottom: 16px;
 }
 
-.title {
-  margin-bottom: 18px;
-}
+.title { margin-bottom: 18px; }
+.subtitle { font-size: 1.02rem; line-height: 1.8; }
 
-.subtitle {
-  font-size: 1.02rem;
-  line-height: 1.8;
-}
-
-/* ---- Grid ---- */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-}
-
-.card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  transition: transform 0.45s cubic-bezier(0.65, 0, 0.35, 1),
-              box-shadow 0.45s cubic-bezier(0.65, 0, 0.35, 1);
-}
-
-.card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 30px 60px var(--shadow), 0 0 0 1px var(--accent-gold);
-}
-
-.imageWrap {
+/* ---- Layout ---- */
+.layout {
   position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: 80px;
+  align-items: start;
+}
+
+/* ---- Index list ---- */
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.listItemWrap {
+  border-bottom: 1px solid var(--border);
+}
+
+.listItemWrap:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.listItem {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: baseline;
+  gap: 24px;
+  padding: 28px 6px;
+  text-align: left;
+  transition: padding-left 0.4s ease;
+}
+
+.listNumber {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  width: 30px;
+  transition: color 0.4s ease;
+}
+
+.listTitle {
+  flex: 1;
+  font-family: var(--font-serif);
+  font-size: clamp(1.3rem, 2.4vw, 1.8rem);
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: color 0.4s ease, transform 0.4s ease;
+}
+
+.listArrow {
+  font-size: 1.1rem;
+  color: var(--accent-gold);
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.listItemActive {
+  padding-left: 18px;
+}
+
+.listItemActive .listNumber {
+  color: var(--accent-gold);
+}
+
+.listItemActive .listTitle {
+  color: var(--text);
+  transform: translateX(4px);
+}
+
+.listItemActive .listArrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ---- Mobile accordion ---- */
+.mobilePanel {
   overflow: hidden;
 }
 
-.image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: grayscale(0.6) contrast(1.05);
-  transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1), filter 0.6s ease;
+.mobileText {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+  padding: 0 6px 26px 60px;
+  position: relative;
 }
 
-.card:hover .image {
-  transform: scale(1.08);
-  filter: grayscale(0.1) contrast(1.05);
+.mobileText[lang='am'] {
+  font-family: var(--font-ethiopic);
+  line-height: 1.95;
 }
 
-.imageOverlay {
+/* small numeral chip, echoes the desktop medallion at mobile scale */
+.mobileText::before {
+  content: attr(data-num);
+}
+
+/* ---- Sticky detail panel (desktop) ---- */
+.panel {
+  position: sticky;
+  top: 130px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px 0;
+}
+
+.medallion {
+  position: relative;
+  width: 130px;
+  height: 130px;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ringSolid {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, var(--bg-inverse) -20%, transparent 60%);
+  border-radius: 50%;
+  border: 1px solid var(--border);
+}
+
+.ringDashed {
+  position: absolute;
+  inset: 14px;
+  border-radius: 50%;
+  border: 1px dashed var(--accent-gold);
   opacity: 0.5;
-  mix-blend-mode: color;
-  pointer-events: none;
+  animation: slowSpin 40s linear infinite;
 }
 
-.cardBody {
-  padding: 32px 28px 34px;
+@keyframes slowSpin {
+  to { transform: rotate(360deg); }
 }
 
-.cardTitle {
-  font-size: 1.25rem;
-  margin-bottom: 14px;
-}
-
-.cardText {
-  font-size: 0.95rem;
-  line-height: 1.75;
-  margin-bottom: 22px;
-}
-
-.cardText[lang='am'],
-.cardTitle[lang='am'] {
-  font-family: var(--font-ethiopic);
-}
-
-.cardLink {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.88rem;
+.medallionNumber {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
   font-weight: 600;
   color: var(--accent-gold);
 }
 
-.arrow {
-  transition: transform 0.3s ease;
+.panelContent {
+  max-width: 420px;
 }
 
-.cardLink:hover .arrow {
-  transform: translateX(5px);
+.panelText {
+  font-size: 1.08rem;
+  line-height: 1.9;
+  color: var(--text);
+}
+
+.panelText[lang='am'] {
+  font-family: var(--font-ethiopic);
+  line-height: 2.05;
 }
 
 /* ---- Responsive ---- */
-@media (max-width: 960px) {
-  .grid {
+@media (max-width: 900px) {
+  .layout {
     grid-template-columns: 1fr;
-    max-width: 480px;
-    margin: 0 auto;
+    gap: 0;
+  }
+  .panel {
+    display: none;
+  }
+  .listItem {
+    padding: 24px 4px;
+  }
+  .listArrow {
+    display: none;
+  }
+  .listItemActive {
+    padding-left: 4px;
+  }
+  .listItemActive .listTitle {
+    transform: none;
+  }
+}
+@media (min-width: 901px) {
+  .mobilePanel {
+    display: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .listTitle {
+    font-size: 1.15rem;
+  }
+  .mobileText {
+    padding-left: 40px;
   }
 }

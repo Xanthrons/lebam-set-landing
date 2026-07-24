@@ -6,8 +6,8 @@ import { useLanguage } from "@/context/LanguageContext";
 import { gsap, fadeUpStagger } from "@/lib/scrollAnimations";
 import styles from "./Footer.module.css";
 
-const TIKTOK_URL = "https://www.tiktok.com/@lebamset";
-const TELEGRAM_URL = "https://t.me/lebamset";
+const TIKTOK_URL = "https://www.tiktok.com/@virtuouswomenproverb31";
+const TELEGRAM_URL = "https://t.me/+UHbfgJarYTNjMjhk";
 
 function TikTokIcon() {
   return (
@@ -65,7 +65,13 @@ export default function Footer() {
         {/* Brand */}
         <div className={styles.col}>
           <a href="#home" className={styles.logo}>
-            <span className={styles.logoMark}>ል</span>
+            <span className={styles.logoMark}>
+              <img
+                src="/images/logo.png"
+                alt="Lebam Set"
+                className={styles.logoImg}
+              />
+            </span>
             <span className={styles.logoText}>
               Lebam Set
               <span className={styles.logoSub}>ልባም ሴት</span>

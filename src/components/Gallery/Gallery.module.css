@@ -8,6 +8,20 @@
   margin: 0 auto 48px;
 }
 
+.swipeHint {
+  display: none;
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.masonryOuter {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
 .eyebrow {
   display: inline-block;
   font-size: 0.8rem;
@@ -87,10 +101,49 @@
 }
 
 /* ---- Responsive ---- */
+/* ---- Tablet: masonry stays, just fewer columns ---- */
 @media (max-width: 900px) {
   .masonry { column-count: 2; }
 }
 
-@media (max-width: 560px) {
-  .masonry { column-count: 1; }
+/* ---- Mobile: swap masonry for a compact horizontal filmstrip ---- */
+@media (max-width: 640px) {
+  .swipeHint {
+    display: block;
+  }
+
+  .masonryOuter {
+    padding: 0;
+    max-width: 100%;
+  }
+
+  .masonry {
+    display: flex;
+    column-count: unset;
+    gap: 14px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 4px 24px 12px;
+    scrollbar-width: none;
+  }
+
+  .masonry::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tile {
+    flex: 0 0 auto;
+    width: 72%;
+    max-width: 260px;
+    aspect-ratio: 4 / 5;
+    margin-bottom: 0;
+    scroll-snap-align: start;
+  }
+
+  .tile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }

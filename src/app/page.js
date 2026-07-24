@@ -10,6 +10,7 @@ import Testimonials from "@/components/Testimonials/Testimonials";
 import ImpactStats from "@/components/ImpactStats/ImpactStats";
 import FAQ from "@/components/FAQ/FAQ";
 import JoinCommunity from "@/components/JoinCommunity/JoinCommunity";
+import ArasProject from "@/components/ArasProject/ArasProject";
 import Gallery from "@/components/Gallery/Gallery";
 import Footer from "@/components/Footer/Footer";
 
@@ -24,7 +25,7 @@ export default function Home() {
       <VirtuesGrid />
       <Programs />
       <JourneyPath />
-      <Testimonials />
+      <ArasProject />
       <ImpactStats />
       <FAQ />
       <JoinCommunity />

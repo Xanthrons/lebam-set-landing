@@ -116,7 +116,13 @@ export default function LoadingScreen() {
               className={styles.ringDraw}
             />
           </svg>
-          <span className={styles.mark}>ል</span>
+          <span className={styles.markBadge}>
+            <img
+              src="/images/logo.png"
+              alt="Lebam Set"
+              className={styles.markImg}
+            />
+          </span>
         </div>
 
         <h1 className={styles.wordmark}>Lebam Set</h1>
