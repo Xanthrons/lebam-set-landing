@@ -250,34 +250,37 @@ export const en = {
   },
   programs: {
     eyebrow: "What We Do",
-    title: "Five Ways We Walk With Her",
+    title: "How We Walk With Her",
     subtitle:
-      "Every program points toward the same aim — a woman rooted in faith, walking in purpose, and reflecting Christ.",
+      "Every program points toward the same aim a woman rooted in faith, walking in purpose, and reflecting Christ.",
     items: [
       {
         title: "Bible Study",
-        text: "Weekly gatherings in the Word that root each woman in Scripture before anything else is built on top — the foundation everything here stands on.",
-        link: "Learn more",
+        text: "Weekly gatherings in the Word that root each woman in Scripture before anything else is built on top the foundation everything here stands on.",
       },
       {
         title: "Mentorship",
-        text: "Small circles led by women further along in faith — safe spaces for honesty, correction, and friendships that outlast the meeting itself.",
-        link: "Learn more",
+        text: "Small circles led by women further along in faith safe spaces for honesty, correction, and friendships that outlast the meeting itself.",
       },
       {
         title: "Counseling",
         text: "One-on-one conversations offering wisdom and a listening ear for whatever season a woman is walking through, in confidence and in love.",
-        link: "Learn more",
+      },
+      {
+        title: "Training",
+        text: "Practical skill-building from vocational training to everyday life skills equipping women to provide for themselves and walk in the diligence Proverbs 31 describes.",
+      },
+      {
+        title: "Pad Project",
+        text: "Providing sanitary pads to women living on the street and girls in government schools who cannot afford them a practical act of dignity that keeps girls in class and women cared for.",
       },
       {
         title: "Community Outreach",
-        text: "Reaching young women the Gospel has not yet touched — meeting practical needs alongside spiritual ones, wherever they are.",
-        link: "Learn more",
+        text: "Reaching young women the Gospel has not yet touched meeting practical needs alongside spiritual ones, wherever they are.",
       },
       {
         title: "Events",
         text: "Retreats, conferences, and gatherings that bring the whole sisterhood together to worship, learn, and celebrate what God is doing.",
-        link: "Learn more",
       },
     ],
   },
@@ -435,19 +438,20 @@ export const en = {
         bio: "Ensures daily ministry operations run seamlessly, efficiently, and with structural integrity.",
       },
       {
+        name: "Kalkidan Kiberu",
+        role: "Training Manager",
+        bio: "Oversees core educational frameworks to equip and empower women for ministry and life.",
+      },
+      {
         name: "Mister Teklu",
         role: "Public Relations Manager",
         bio: "Builds strategic community partnerships and manages external relations to amplify our reach.",
       },
+
       {
         name: "Feben Legese",
         role: "Program Coordinator & Event Manager",
         bio: "Orchestrates ministry programs, retreats, and special gatherings with precision and care.",
-      },
-      {
-        name: "Lidiya Tesfaye",
-        role: "Social Media Manager",
-        bio: "Crafts engaging digital content and tells the story of Lebam Set across online platforms.",
       },
       {
         name: "Kalkidan Angassa",
@@ -455,9 +459,9 @@ export const en = {
         bio: "Directs community outreach initiatives and resource allocation to serve those in need.",
       },
       {
-        name: "Kalkidan Kiberu",
-        role: "Training Manager",
-        bio: "Oversees core educational frameworks to equip and empower women for ministry and life.",
+        name: "Lidiya Tesfaye",
+        role: "Social Media Manager",
+        bio: "Crafts engaging digital content and tells the story of Lebam Set across online platforms.",
       },
       {
         name: "Fasika Zewede",
@@ -465,14 +469,14 @@ export const en = {
         bio: "Offers a safe, restorative space for personal development, counseling, and emotional healing.",
       },
       {
-        name: "Nunati Selemon",
-        role: "Psychosocial Supporter",
-        bio: "Provides empathetic guidance and holistic emotional care to support mental well-being.",
-      },
-      {
         name: "Yeabsira Mesefen",
         role: "Training Lesson Plan Manager",
         bio: "Designs and structures comprehensive curriculum materials and learning tracks for workshops.",
+      },
+      {
+        name: "Nunati Selemon",
+        role: "Psychosocial Supporter",
+        bio: "Provides empathetic guidance and holistic emotional care to support mental well-being.",
       },
     ],
   },
