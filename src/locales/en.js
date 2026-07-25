@@ -287,9 +287,9 @@ export const en = {
   impact: {
     items: [
       { value: 4, suffix: "+", label: "Years of Ministry" },
-      { value: 150, suffix: "+", label: "Women Empowered" },
-      { value: 10, suffix: "+", label: "programs" },
-      { value: 100, suffix: "", label: "Lives Changed" },
+      { value: 1500, suffix: "+", label: "Women Empowered" },
+      { value: 5, suffix: "+", label: "programs" },
+      { value: 1000, suffix: "", label: "Lives Changed" },
     ],
   },
   join: {
