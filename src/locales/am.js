@@ -250,9 +250,9 @@ export const am = {
   impact: {
     items: [
       { value: 4, suffix: "+", label: "የአገልግሎት ዓመታት" },
-      { value: 150, suffix: "+", label: "የደረስንባቸው ሴቶች" },
-      { value: 10, suffix: "+", label: "ፕሮግራሞች" },
-      { value: 12, suffix: "", label: "ህይወቶች ተቀይሯል" },
+      { value: 1500, suffix: "+", label: "የደረስንባቸው ሴቶች" },
+      { value: 5, suffix: "+", label: "ፕሮግራሞች" },
+      { value: 1000, suffix: "", label: "ህይወቶች ተቀይሯል" },
     ],
   },
   join: {
